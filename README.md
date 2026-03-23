@@ -107,18 +107,19 @@ Os seguintes cenários foram automatizados:
 
 ---
 
+
 # 🎯 Objetivo do projeto
 
-Este projeto foi desenvolvido com o objetivo de:
+Demonstrar habilidades em automação de testes web utilizando Playwright,
+com foco em:
 
-* praticar **automação de testes web**
-* aplicar o padrão **Page Object Model**
-* utilizar **Playwright com Python**
-* demonstrar conhecimentos em **QA Automation**
-
+* Validação de formulários
+* Escrita de testes robustos e reutilizáveis
+* Aplicação de boas práticas de QA Automation
+* Estrutura escalável com Page Object Model
 ---
 
 # 👩‍💻 Autora
 
-Vitória
+Vitória Tomazeli
 QA Automation | Testes Automatizados
