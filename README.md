@@ -1,125 +1,129 @@
-# 🧪 Automação de Testes – Formulário de Certificação
+# 🧪 Automação de Testes — Formulário de Certificação
 
-Este projeto contém testes automatizados para o formulário disponível em:
+Projeto de automação de testes web desenvolvido com **Python, Playwright e Pytest**, com foco na validação de formulários, organização dos testes e investigação de defeitos.
 
-https://qualidade.apprbs.com.br/certificacao
+**Aplicação testada:** [Formulário de Certificação](https://qualidade.apprbs.com.br/certificacao)
 
-Os testes foram desenvolvidos utilizando **Python**, **Playwright** e **Pytest**, com foco na validação de campos obrigatórios e comportamento do formulário.
+## 🚀 Tecnologias utilizadas
 
----
+- **Python** — linguagem de programação.
+- **Playwright** — automação de navegadores.
+- **Pytest** — execução e organização dos testes automatizados.
+- **pytest-html** — geração de relatórios HTML.
 
-# 🚀 Tecnologias utilizadas
+## 📂 Estrutura do projeto
 
-* Python
-* Playwright
-* Pytest
-* Pytest-html (para geração de relatórios)
-
----
-
-# 📂 Estrutura do Projeto
-
-```
-project
-│
-├── pages
+```text
+qa-playwright-tests/
+├── pages/
 │   └── certificacao_page.py
-│
-├── tests
-│   ├── test_email_invalido.py
-│   ├── test_telefone_invalido.py
+├── tests/
+│   ├── test_botao_avancar.py
 │   ├── test_campos_obrigatorios.py
-│   └── test_fluxo_completo.py
-│
+│   ├── test_email_invalido.py
+│   ├── test_fluxo_completo.py
+│   └── test_telefone_invalido.py
+├── assets/
+├── fixtures/
 ├── conftest.py
+├── pytest.ini
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
----
+## 🧩 Padrão de projeto: Page Object Model
 
-# 🧩 Padrão de Projeto
+O projeto utiliza o padrão **Page Object Model (POM)** para separar as ações e os elementos da página dos casos de teste.
 
-O projeto utiliza o padrão **Page Object Model (POM)**, que separa:
+- `pages/`: concentra os métodos de interação com o formulário.
+- `tests/`: contém os cenários de teste automatizados.
+- `conftest.py`: configurações e fixtures compartilhadas do Pytest.
+- `pytest.ini`: configuração da descoberta dos testes.
+- `requirements.txt`: dependências necessárias para executar o projeto.
 
-* **Elementos e ações da página** (pasta `pages`)
-* **Casos de teste** (pasta `tests`)
+Essa organização favorece a reutilização de código e facilita a manutenção dos testes.
 
-Isso melhora a organização, manutenção e reutilização do código.
+## ⚙️ Como executar o projeto
 
----
+### 1. Clonar o repositório
 
-# ▶️ Como executar o projeto
-
-### 1️⃣ Clonar o repositório
-
-```
-git clone https://github.com/seu-usuario/seu-repositorio.git
-```
-
-### 2️⃣ Entrar na pasta
-
-```
-cd seu-repositorio
+```bash
+git clone https://github.com/vitomazeli/qa-playwright-tests.git
+cd qa-playwright-tests
 ```
 
-### 3️⃣ Instalar dependências
+### 2. Criar um ambiente virtual
 
-```
-pip install -r requirements.txt
-```
+No Windows:
 
-### 4️⃣ Instalar Playwright
-
-```
-playwright install
+```bash
+python -m venv venv
+venv\Scripts\activate
 ```
 
-### 5️⃣ Executar os testes
+### 3. Instalar as dependências
 
-```
-pytest -v
-```
-
----
-
-# 📊 Gerar relatório HTML
-
-Para gerar um relatório automático da execução:
-
-```
-pytest --html=report.html
+```bash
+python -m pip install -r requirements.txt
 ```
 
-Após a execução, será gerado um arquivo `report.html` com os resultados dos testes.
+### 4. Instalar os navegadores do Playwright
 
----
+```bash
+python -m playwright install
+```
 
-# 🧪 Cenários de teste automatizados
+### 5. Executar os testes
 
-Os seguintes cenários foram automatizados:
+```bash
+python -m pytest tests/ -v
+```
 
-* Validação de **campos obrigatórios**
-* Validação de **email inválido**
-* Validação de **telefone inválido**
-* Validação do **botão avançar**
-* Execução do **fluxo básico do formulário**
+## 📊 Relatório HTML
 
----
+Para gerar um relatório da execução dos testes:
 
+```bash
+python -m pytest tests/ -v --html=report.html --self-contained-html
+```
 
-# 🎯 Objetivo do projeto
+Após a execução, abra o arquivo `report.html` no navegador para consultar os resultados.
 
-Demonstrar habilidades em automação de testes web utilizando Playwright,
-com foco em:
+## 🧪 Cenários de teste
 
-* Validação de formulários
-* Escrita de testes robustos e reutilizáveis
-* Aplicação de boas práticas de QA Automation
-* Estrutura escalável com Page Object Model
----
+O projeto contempla cenários relacionados a:
 
-# 👩‍💻 Autora
+- Campos obrigatórios.
+- E-mail inválido.
+- Telefone inválido.
+- Estado do botão “Avançar”.
+- Fluxo básico do formulário.
 
-Vitória Tomazeli
+**Status dos testes:** os cenários estão em desenvolvimento e validação. Durante a investigação, foram identificados erros JavaScript na aplicação que podem impedir o avanço do formulário. Os resultados devem ser consultados nas execuções mais recentes do Pytest.
+
+## 🐞 Investigação de defeitos
+
+Foi aberta uma issue para documentar o comportamento observado durante os testes:
+
+- [Issue #1 — Botão Avançar permanece desabilitado](https://github.com/vitomazeli/qa-playwright-tests/issues/1)
+
+A investigação registrou erros JavaScript e o estado desabilitado do botão após o preenchimento dos campos. A causa raiz ainda precisa ser confirmada.
+
+## 🎯 Objetivos de aprendizagem
+
+Este projeto demonstra a prática de:
+
+- Automação de testes de interface web.
+- Validação de formulários.
+- Organização de testes com Pytest.
+- Aplicação do padrão Page Object Model.
+- Investigação e documentação de defeitos.
+- Coleta e análise de evidências durante a execução dos testes.
+
+## 👩‍💻 Autora
+
+**Vitória Tomazeli**  
 QA Automation | Testes Automatizados
+
+[GitHub](https://github.com/vitomazeli)

@@ -1,20 +1,47 @@
+
 # Ambiente virtual
 venv/
+.venv/
 
-# Cache Python
+# Ambiente virtual na raiz do projeto
+/Lib/
+/Scripts/
+
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
 # Pytest
 .pytest_cache/
-
-# Relatórios
+.pytest_tmp/
 report.html
 
-# Arquivos do sistema
+# Capturas de diagnóstico
+antes_de_avancar.png
+apos_clicar_avancar.png
+depois_de_avancar.png
+formulario_antes.png
+formulario_preenchido.png
+
+# Relatórios
+allure-results/
+allure-report/
+
+# IDE e sistema operacional
+.vscode/
+.idea/
 .DS_Store
 Thumbs.db
 
-# IDEs
-.vscode/
-.idea/
+# Arquivos Python gerados
+__pycache__/
+*.py[cod]
+
+# Ambiente e relatórios
+venv/
+.venv/
+/Lib/
+/Scripts/
+.pytest_cache/
+report.html
